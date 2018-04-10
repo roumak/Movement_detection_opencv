@@ -22,7 +22,7 @@ def main():
         ret,thresold=cv2.threshold(blur,20,255,cv2.THRESH_BINARY)
         dil=cv2.dilate(thresold,np.ones((3,3),np.uint8),iterations=2)
         er=cv2.erode(dil,np.ones((3,3),np.uint8),iterations=2)
-        con,h=cv2.findContours(er,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+        randval,con,h=cv2.findContours(er,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
         cv2.drawContours(fr1,con,-1,(15,150,255),2)
         if(b==cv2.absdiff(fr1,fr2)).all():
         	x=x+1
